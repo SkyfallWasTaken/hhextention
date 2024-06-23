@@ -1,25 +1,9 @@
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #333;
-  --light-bg-color: #f8f9fa;
-  --dark-bg-color: #121212;
-  --light-text-color: #000;
-  --dark-text-color: #fff;
-}
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   height: 100vh;
-  background-color: var(--light-bg-color);
-  color: var(--light-text-color);
-}
-
-body.dark-mode {
-  background-color: var(--dark-bg-color);
-  color: var(--dark-text-color);
 }
 
 .container {
@@ -30,7 +14,7 @@ body.dark-mode {
 .navbar {
   display: flex;
   flex-direction: column;
-  background-color: var(--secondary-color);
+  background-color: #333;
   width: 200px;
   padding: 10px;
 }
@@ -64,25 +48,10 @@ body.dark-mode {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-.page {
-  display: none;
-  width: 100%;
-}
-
-.page.active {
-  display: block;
-}
-
-.home-page, .history-page, .appearance-page, .chat-page {
+.home-page {
   text-align: center;
-}
-
-.title {
-  font-size: 48px;
-  margin-bottom: 20px;
 }
 
 .input-field {
@@ -92,12 +61,6 @@ body.dark-mode {
   font-size: 18px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-body.dark-mode .input-field {
-  background-color: var(--dark-bg-color);
-  color: var(--dark-text-color);
-  border: 1px solid #555;
 }
 
 .timer-display {
@@ -124,13 +87,19 @@ body.dark-mode .input-field {
   background-color: #218838;
 }
 
+.history-page,
+.appearance-page {
+  display: none;
+  text-align: center;
+}
+
 .history-list {
   list-style-type: none;
   padding: 0;
 }
 
 .history-list li {
-  background-color: var(--light-bg-color);
+  background-color: #f8f9fa;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
@@ -138,7 +107,7 @@ body.dark-mode .input-field {
 }
 
 .appearance-button {
-  background-color: var(--primary-color);
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -152,10 +121,78 @@ body.dark-mode .input-field {
   background-color: #0056b3;
 }
 
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode .navbar {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .nav-button {
+  background-color: #282828;
+}
+
+body.dark-mode .nav-button:hover {
+  background-color: #383838;
+}
+
+body.dark-mode .main-content {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark-mode .input-field {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark-mode .timer-display {
+  color: white;
+}
+
+body.dark-mode .action-button {
+  background-color: #444;
+}
+
+body.dark-mode .action-button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+body.dark-mode .history-list li {
+  background-color: #333;
+  border: 1px solid #555;
+}
+
+body.dark-mode .appearance-button {
+  background-color: #444;
+}
+
+body.dark-mode .appearance-button:hover {
+  background-color: #555;
+}
+
+/* Chat Box Styles */
+.chat-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
 .chat-header {
-  background-color: var(--primary-color);
+  background-color: #007bff;
   color: white;
   padding: 10px;
+  border-radius: 5px 5px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,13 +221,13 @@ body.dark-mode .input-field {
 }
 
 .user-message {
-  background-color: var(--primary-color);
+  background-color: #007bff;
   color: white;
   align-self: flex-end;
 }
 
 .ai-message {
-  background-color: var(--light-bg-color);
+  background-color: #f8f9fa;
   color: black;
   align-self: flex-start;
 }
@@ -204,7 +241,7 @@ body.dark-mode .input-field {
 }
 
 .send-button {
-  background-color: var(--primary-color);
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -213,8 +250,10 @@ body.dark-mode .input-field {
   border-radius: 5px;
 }
 
-body.dark-mode .chat-page {
-  background-color: var(--dark-bg-color);
+/* Dark Mode for Chat Box */
+body.dark-mode .chat-box {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
 }
 
 body.dark-mode .chat-header {
@@ -226,7 +265,7 @@ body.dark-mode .close-button {
 }
 
 body.dark-mode .chat-messages {
-  background-color: var(--dark-bg-color);
+  background-color: #121212;
   border-bottom: 1px solid #444;
 }
 
@@ -236,7 +275,7 @@ body.dark-mode .message {
 }
 
 body.dark-mode .user-message {
-  background-color: var(--primary-color);
+  background-color: #007bff;
   color: white;
 }
 
@@ -252,5 +291,5 @@ body.dark-mode .chat-input {
 }
 
 body.dark-mode .send-button {
-  background-color: var(--primary-color);
+  background-color: #007bff;
 }
