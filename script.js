@@ -69,10 +69,8 @@ function startTimer() {
     endButton.disabled = false;
 
     const topic = document.getElementById('coding-topic').value || 'No topic entered';
-    const slack_id = document.getElementById('slack-id').value || 'No Slack ID entered';
     const notificationInterval = parseInt(document.getElementById('notification-interval').value) * 60 * 1000 || 15 * 60 * 1000;
     const notificationStart = parseInt(document.getElementById('notification-start').value) * 60 * 1000 || 0;
-    axios.get
     if (isNaN(notificationInterval)) {
         notificationInterval = 15 * 60 * 1000;
     }
@@ -118,8 +116,6 @@ function logTime(elapsedTime) {
     logEntry.textContent = `Spent ${minutes} minutes coding on: ${topic}`;
     historyList.appendChild(logEntry);
 }
-
-
 
 startButton.addEventListener('click', startTimer);
 endButton.addEventListener('click', endTimer);
