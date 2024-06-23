@@ -13,37 +13,26 @@
             <button class="nav-button" onclick="showHome()"><i class="fas fa-home"></i></button>
             <button class="nav-button" onclick="showHistory()"><i class="fas fa-history"></i></button>
             <button class="nav-button" onclick="showAppearance()"><i class="fas fa-paint-brush"></i></button>
-            <button class="nav-button"><i class="fas fa-bell"></i></button>
             <button class="nav-button" onclick="toggleChat()"><i class="fas fa-lightbulb"></i></button>
         </nav>
         <main class="main-content">
-            <div class="home-page" id="home-page">
-                <input type="text" id="slack-id" placeholder="Enter your Slack ID" class="input-field">
+            <div class="page home-page" id="home-page">
                 <input type="text" id="coding-topic" placeholder="Enter your coding topic" class="input-field">
                 <div id="timer-display" class="timer-display">60:00</div>
                 <button id="start-button" class="action-button">Start Timer</button>
                 <button id="end-button" class="action-button" disabled>End Timer</button>
             </div>
-            <div class="history-page" id="history-page" style="display: none;">
+            <div class="page history-page" id="history-page">
                 <h2>History</h2>
                 <ul id="history-list" class="history-list"></ul>
             </div>
-            <div class="appearance-page" id="appearance-page" style="display: none;">
+            <div class="page appearance-page" id="appearance-page">
                 <h2>Appearance</h2>
                 <button onclick="setLightMode()" class="appearance-button">Light Mode</button>
                 <button onclick="setDarkMode()" class="appearance-button">Dark Mode</button>
                 <h2>Notification Settings</h2>
                 <input type="number" id="notification-interval" placeholder="Notification interval in minutes" class="input-field">
                 <input type="number" id="notification-start" placeholder="Start notifications at minute" class="input-field">
-            </div>
-            <div class="chat-box" id="chat-box" style="display: none;">
-                <div class="chat-header">
-                    <h2>AI Assistant</h2>
-                    <button class="close-button" onclick="toggleChat()">×</button>
-                </div>
-                <div class="chat-messages" id="chat-messages"></div>
-                <input type="text" id="chat-input" placeholder="Type a message..." class="chat-input">
-                <button onclick="sendMessage()"><i class="fa-solid fa-terminal"></i></button>
             </div>
         </main>
     </div>
