@@ -1,9 +1,25 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #333;
+  --light-bg-color: #f8f9fa;
+  --dark-bg-color: #121212;
+  --light-text-color: #000;
+  --dark-text-color: #fff;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   height: 100vh;
+  background-color: var(--light-bg-color);
+  color: var(--light-text-color);
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
 }
 
 .container {
@@ -14,7 +30,7 @@ body {
 .navbar {
   display: flex;
   flex-direction: column;
-  background-color: #333;
+  background-color: var(--secondary-color);
   width: 200px;
   padding: 10px;
 }
@@ -48,10 +64,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.home-page {
+.page {
+  display: none;
+  width: 100%;
+}
+
+.page.active {
+  display: block;
+}
+
+.home-page, .history-page, .appearance-page, .chat-page {
   text-align: center;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .input-field {
@@ -61,6 +92,12 @@ body {
   font-size: 18px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+body.dark-mode .input-field {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+  border: 1px solid #555;
 }
 
 .timer-display {
@@ -87,19 +124,13 @@ body {
   background-color: #218838;
 }
 
-.history-page,
-.appearance-page {
-  display: none;
-  text-align: center;
-}
-
 .history-list {
   list-style-type: none;
   padding: 0;
 }
 
 .history-list li {
-  background-color: #f8f9fa;
+  background-color: var(--light-bg-color);
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ccc;
@@ -107,7 +138,7 @@ body {
 }
 
 .appearance-button {
-  background-color: #007bff;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   padding: 15px 30px;
@@ -121,55 +152,105 @@ body {
   background-color: #0056b3;
 }
 
-body.dark-mode {
-  background-color: #121212;
+.chat-header {
+  background-color: var(--primary-color);
   color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-body.dark-mode .navbar {
-  background-color: #1e1e1e;
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-body.dark-mode .nav-button {
+.chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 80%;
+}
+
+.user-message {
+  background-color: var(--primary-color);
+  color: white;
+  align-self: flex-end;
+}
+
+.ai-message {
+  background-color: var(--light-bg-color);
+  color: black;
+  align-self: flex-start;
+}
+
+.chat-input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: calc(100% - 80px);
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.send-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+body.dark-mode .chat-page {
+  background-color: var(--dark-bg-color);
+}
+
+body.dark-mode .chat-header {
   background-color: #282828;
 }
 
-body.dark-mode .nav-button:hover {
-  background-color: #383838;
-}
-
-body.dark-mode .main-content {
-  background-color: #121212;
+body.dark-mode .close-button {
   color: white;
 }
 
-body.dark-mode .input-field {
+body.dark-mode .chat-messages {
+  background-color: var(--dark-bg-color);
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .message {
   background-color: #333;
+  color: white;
+}
+
+body.dark-mode .user-message {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+body.dark-mode .ai-message {
+  background-color: #444;
+  color: white;
+}
+
+body.dark-mode .chat-input {
+  background-color: #282828;
   color: white;
   border: 1px solid #555;
 }
 
-body.dark-mode .timer-display {
-  color: white;
-}
-
-body.dark-mode .action-button {
-  background-color: #444;
-}
-
-body.dark-mode .action-button:hover:not(:disabled) {
-  background-color: #555;
-}
-
-body.dark-mode .history-list li {
-  background-color: #333;
-  border: 1px solid #555;
-}
-
-body.dark-mode .appearance-button {
-  background-color: #444;
-}
-
-body.dark-mode .appearance-button:hover {
-  background-color: #555;
+body.dark-mode .send-button {
+  background-color: var(--primary-color);
 }
