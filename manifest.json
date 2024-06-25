@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Hack Hour",
+  "version": "1.0",
+  "description": "An extension for the Hack Club Arcade",
+  "permissions": [],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "<placeholder>",
+      "48": "<placeholder>",
+      "128": "<placeholder>"
+    }
+  },
+  "icons": {
+    "16": "<placeholder>",
+    "48": "<placeholder>",
+    "128": "<placeholder>"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "script.js", "styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
